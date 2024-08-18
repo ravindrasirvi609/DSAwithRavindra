@@ -113,3 +113,30 @@ for (let i = 5; i >= 1; i--) {
 **
 *
 */
+
+for (let i = 0; i <5; i++) {
+    let output = "";
+    for (let j = 0; j < 5; j++) {
+        if (j >= i) {
+            output = output + "*";
+        } else {
+            console.log(" ");
+        }
+    }
+            console.log(output);
+
+}
+
+/*
+    *
+   **
+  ***
+ ****
+*****
+ ****
+  ***
+   **
+    *
+*/
+
+
