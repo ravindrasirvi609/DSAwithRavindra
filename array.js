@@ -480,5 +480,68 @@ if (arr77.length === 1) {
     }
 }
 
+// SORTING
+
+// Bubble sort
+
+let arr78 = [8, 2, 7, 4, 5, 10, 1, 3, 9, 6];
+let temp;
+for (let i = 0; i < arr78.length-1; i++) {
+  for (let j = 0; j < arr78.length-1-i; j++) {
+    if (arr78[j] > arr78[j+1]) {
+      temp = arr78[j];
+      arr78[j] = arr78[j+1];
+      arr78[j+1] = temp
+    }
+  }
+}
+  console.log(arr78);
 
 
+
+// Selection Sort
+
+let arr79 = [8, 2, 7, 4, 5, 10, 1, 3, 9, 6];
+
+for (let i = 0; i < arr79.length - 1; i++) {
+    let minIndex = i;
+    for (let j = i + 1; j < arr79.length; j++) {
+        if (arr79[j] < arr79[minIndex]) {
+            minIndex = j;
+        }
+    }
+    if (minIndex !== i) {
+        let temp = arr79[i];
+        arr79[i] = arr79[minIndex];
+        arr79[minIndex] = temp;
+    }
+}
+
+console.log(arr79);
+
+// Quick Sort
+// Quick Sort function
+function quickSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  let pivotElement = arr[arr.length - 1];
+  let left = [];
+  let right = [];
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < pivotElement) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+
+  return quickSort(left).concat(pivotElement, quickSort(right));
+}
+
+let arr80 = [8, 2, 7, 4, 5, 10, 1, 3, 9, 6];
+let sortedArr80 = quickSort(arr80);
+
+console.log(sortedArr80);
