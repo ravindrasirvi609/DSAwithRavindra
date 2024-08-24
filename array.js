@@ -549,29 +549,34 @@ console.log(sortedArr80);
 
 // write a function in that to find the second largest element in an array
 
-function secondLargestElement(arr81){
-const arr82 =  quickSort(arr81)
-  function quickSort(arr81){
+function secondLargestElement(arr81) {
+  const arr82 = quickSort(arr81);
 
+  function quickSort(arr81) {
     if (arr81.length <= 1) {
       return arr81;
     }
+    
+    const pivotElement = arr81[arr81.length - 1];
     const right = [];
     const left = [];
-    const pivotElement = arr81[arr81.length-1]
-    for (let i = 0; i < arr81.length-1; i++) {
+
+    for (let i = 0; i < arr81.length - 1; i++) {
       if (arr81[i] > pivotElement) {
-        right.push(arr81[i])
+        right.push(arr81[i]);
       } else {
-        left.push(arr81[i])
+        left.push(arr81[i]);
       }
     }
 
+    // left + pivotElement + right
     return [...quickSort(left), pivotElement, ...quickSort(right)];
   }
-  return arr82[arr82.length-2]
+
+  return arr82[arr82.length - 2];
 }
 
 const arr81 = [8, 2, 7, 4, 5, 10, 1, 3, 9, 6];
-let answer = secondLargestElement(arr81)
-console.log(answer);
+let answer = secondLargestElement(arr81);
+console.log(answer); // Output: 9
+
