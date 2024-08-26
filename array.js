@@ -580,3 +580,103 @@ const arr81 = [8, 2, 7, 4, 5, 10, 1, 3, 9, 6];
 let answer = secondLargestElement(arr81);
 console.log(answer); // Output: 9
 
+//write a function to find longest squance of consecutive numbers in an array
+function longestSequence(arr83) {
+  if (arr83.length === 0) return [];
+
+  let currentSequence = [arr83[0]];
+  let longestSequence = [arr83[0]];
+
+  for (let i = 1; i < arr83.length; i++) {
+    if (arr83[i] === arr83[i - 1] + 1) {
+      currentSequence.push(arr83[i]);
+    } else {
+      if (currentSequence.length > longestSequence.length) {
+        longestSequence = currentSequence;
+      }
+      currentSequence = [arr83[i]];
+    }
+  }
+
+  // Check the last sequence
+  if (currentSequence.length > longestSequence.length) {
+    longestSequence = currentSequence;
+  }
+
+  return longestSequence;
+}
+
+let arr83 = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+let newAnswer = longestSequence(arr83);
+console.log(newAnswer);
+
+
+// Write a Function to remove all the Dublicate elements from the array
+
+function removeDuplicateElements(arr84) {
+  let removeDuplicateArray = [];
+  let seen = new Set();
+
+  for (let i = 0; i < arr84.length; i++) {
+    if (!seen.has(arr84[i])) {
+      seen.add(arr84[i]);
+      removeDuplicateArray.push(arr84[i]);
+    }
+  }
+
+  return removeDuplicateArray;
+}
+
+let arr84 = [2, 4, 4, 5, 7, 7, 8, 9, 10, 10];
+
+console.log(removeDuplicateElements(arr84));
+
+// Write a Function to rotate a Array with n Numbers
+
+function rotateArray(arr85, n) {
+  n = n % arr85.length;
+
+  // Split the array into two parts and concatenate them in reverse order
+  let rotatedArray = arr85.slice(-n).concat(arr85.slice(0, -n));
+
+  return rotatedArray;
+}
+
+let arr85 = [2, 3, 4, 5, 6];
+console.log(rotateArray(arr85, 2)); 
+// Output: [5, 6, 2, 3, 4]
+
+// Write a Function to Find the missing number in array 
+
+function findMissingNumber(arr86) {
+  for (let i = 1; i <= 10; i++) {
+    let yes = arr86.includes(i);
+    if (!yes) {
+      return i;
+    }
+  }
+  
+}
+
+let arr86 = [1,2,3,4,5,7,8,9,10];
+console.log(findMissingNumber(arr86));
+
+// Write a Function to Two Sum : Given an array of integers and a target sum, return indices of the two numbers such that they add up to the target.
+
+function twoSum(arr87, sum) {
+  let twoSumArray = []
+  for (let i = 0; i < arr87.length; i++) {
+    for (let j = i; j < arr87.length; j++) {
+      if (i!==j) {
+        if(arr87[i] + arr87[j] === sum){
+          twoSumArray.push(arr87[i])
+          twoSumArray.push(arr87[j])
+        }
+      }
+    }
+  }
+  return twoSumArray;
+}
+
+let arr87 = [1,2,3,4,6,7,8,9,10];
+console.log(twoSum(arr87, 19));
