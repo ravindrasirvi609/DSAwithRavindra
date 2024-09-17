@@ -58,9 +58,31 @@ let अंदरButton = document.getElementById('अंदर');
 }, true);
 
 
-let form =  document.querySelector("form")
+let Submit =  document.getElementById("submit")
 
-console.log("form", form);
-let name = document.getElementById("name").value
-console.log(name);
+Submit.addEventListener('click', function(event){
+      event.preventDefault();
+      console.log("Form Submitted");
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("age").value;
+      console.log("Name", name);
+      console.log("Email", email);
+})
+
+
+
+let table = document.getElementById("mainTable");
+let tableButton = document.getElementById("tableButton");
+
+tableButton.addEventListener("click", function(event) {
+   event.preventDefault();
+   console.log("Button Clicked");
+   let row = document.getElementById("rowBody");
+   let newRow = row.cloneNode(true);
+   table.querySelector("tbody").appendChild(newRow);
+});
+
+
+
+
 
