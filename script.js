@@ -85,4 +85,16 @@ tableButton.addEventListener("click", function(event) {
 
 
 
+const addNewTaskButton =  document.getElementById("addTask");
+console.log(addNewTaskButton,"addNewTaskButton");
+
+addNewTaskButton.addEventListener("click", (event)=>{
+     event.preventDefault();
+
+  console.log("Hello ",event);
+  
+})
+
+
+
 
