@@ -96,5 +96,22 @@ addNewTaskButton.addEventListener("click", (event)=>{
 })
 
 
+let myPromise = new Promise((res, rej)=>{
+  let isOpen = true;
+  if(isOpen){
+    res("Door is Open");
+  }else{
+    rej("Door is Closed");
+  }
+})
+
+myPromise.then((data)=>{
+  console.log("Door is Open", data);
+}).catch((err)=>{
+  console.log("Door is Closed", err);
+})
+
+
+
 
 
